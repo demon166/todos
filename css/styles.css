@@ -1,0 +1,12 @@
+.form-switch input:checked ~ span{
+    text-decoration: solid black line-through;
+}
+
+.todo-item{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon.icon-cross{
+    cursor: pointer;
+}
