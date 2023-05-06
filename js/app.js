@@ -25,10 +25,38 @@ const submitHandle = async (event) => {
     }
 }
 
+const deleteTodo = async (id) => {
+    const res = await fetch(`${baseUrl}/todos/${id}`, {
+        headers,
+        method: 'delete'
+    })
+    return res.ok;
+}
+
+const toggleCompleted = async (todo) => {
+    const res = await fetch(`${baseUrl}/todos/${todo.id}`, {
+        headers,
+        method: 'put',
+        body: JSON.stringify({
+            title: todo.title,
+            completed: !todo.completed
+        })
+    });
+    return res.ok;
+}
+
 const createTodoElement = (todo) => {
     const todoElement = document.createElement('div');
     todoElement.className = "d-flex todo-item"
     const labelElement = document.createElement('label');
+    labelElement.addEventListener('click', async () => {
+        const res = await toggleCompleted(todo);
+        if (res){
+            renderTodos();
+        } else {
+            alert('Ошибка');
+        }
+    })
     labelElement.className = "form-switch";
     labelElement.innerHTML = `
         <input type="checkbox" ${todo.completed ?'checked' : ''}>
@@ -37,6 +65,14 @@ const createTodoElement = (todo) => {
     const buttonDelete = document.createElement('button');
     buttonDelete.className = "delete-button";
     buttonDelete.innerHTML = `<i class="icon icon-cross"></i>`;
+    buttonDelete.addEventListener('click', async () => {
+        const res = await deleteTodo(todo.id);
+        if (res){
+            renderTodos();
+        } else {
+            alert('Не удалось удалить задачу');
+        }
+    });
     todoElement.append(labelElement);
     todoElement.append(buttonDelete);
     return todoElement;
