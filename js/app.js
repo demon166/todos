@@ -18,7 +18,11 @@ if (!token) {
 const submitHandle = async (event) => {
     event.preventDefault();
     const title = event.target.elements.title.value;
-    await postTodo(title);
+    const res = await postTodo(title);
+    if (res){
+        event.target.elements.title.value = '';
+        renderTodos();
+    }
 }
 
 const createTodoElement = (todo) => {
