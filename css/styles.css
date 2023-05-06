@@ -10,3 +10,9 @@
 .icon.icon-cross{
     cursor: pointer;
 }
+
+.delete-button{
+    background: none;
+    border: none;
+    outline: none;
+}

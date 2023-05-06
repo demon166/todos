@@ -29,40 +29,19 @@
         </header>
         <div class="columns mb-2">
             <div class="column col-8 col-mx-auto">
-                <form id="create-todo">
+                <form id="login">
                     <div class="form-group">
-                        <label class="form-label" for="todo-input">Задача:</label>
-                        <input class="form-input" name="title" type="text" id="todo-input" placeholder="Задача...">
+                        <label class="form-label" for="name">Имя:</label>
+                        <input class="form-input" name="name" type="text" id="name" placeholder="Имя...">
                     </div>
                     <div>
-                        <button type="submit" class="btn">Добавить задачу</button>
+                        <button type="submit" class="btn">Вход</button>
                     </div>
                 </form>
 
             </div>
         </div>
-        <div class="columns pt-2">
-            <div class="column col-8 col-mx-auto">
-                <div class="divider text-center" data-content="Задачи"></div>
-                <div class="form-group">
-                    <div class="d-flex todo-item">
-                        <label class="form-switch">
-                            <input type="checkbox">
-                            <i class="form-icon"></i> <span>Название задачи</span>
-                        </label>
-                        <button class="delete-button"><i class="icon icon-cross"></i></button>
-                    </div>
-                    <div class="d-flex todo-item">
-                        <label class="form-switch">
-                            <input type="checkbox">
-                            <i class="form-icon"></i> <span>Название задачи</span>
-                        </label>
-                        <i class="icon icon-cross"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <script src="js/app.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
